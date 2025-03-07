@@ -14,6 +14,13 @@ class WeatherApiAccess:
 
 
     def getWeatherStations(self):
-        url = 'https://api.weather.gov/stations'
-        response = requests.get(url)
-        return response.json()
+        
+        response = requests.get(self.url)
+        if response.status_code == 200:
+            data = response.json()
+            return data
+        else:
+            return None
+
+
+
