@@ -21,6 +21,26 @@ class WeatherApiAccess:
             return data
         else:
             return None
+    
+    def convertToGeojson(self, data):
+        features = []
+        for station in data['items']:
+            if 'lat' in station and 'long' in station:
+                feature = {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [station['long'], station['lat']]
+                    },
+                    "properties": station
+                }
+                features.append(feature)
+        
+        geojson = {
+            "type": "FeatureCollection",
+            "features": features
+        }
+        return geojson
 
 
 
