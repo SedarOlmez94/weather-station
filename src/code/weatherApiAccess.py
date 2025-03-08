@@ -5,7 +5,6 @@ Description...
 '''
 
 import requests
-import json
 
 
 class WeatherApiAccess:

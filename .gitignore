@@ -169,3 +169,6 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+src/code/weather_stations.html
+.gitignore
+src/data/weather_stations.geojson
